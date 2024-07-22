@@ -24,7 +24,9 @@ $(document).ready(function() {
         $("#email").text("");
         $(".data").hide();
         $(".g_id_signin").show();
+
         window.location.href = "index.html";
     });
 });
+
 
