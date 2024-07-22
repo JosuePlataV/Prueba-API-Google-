@@ -5,7 +5,5 @@ function onSignIn(googleUser) {
     $("#image").attr(`src`,profile.getImageUrl());
     $(".data").css("display", "block");
     $(".g-signin2").css("display", "none");
-    var id_token = googleUser.getAuthResponse().id_token;
-    window.location.href = 'correo.html?id_token=' + id_token;
 }
-
+ 
