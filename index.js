@@ -1,16 +1,12 @@
-// Configura la función de callback que se llama cuando el usuario inicia sesión
 function handleCredentialResponse(response) {
     const responsePayload = decodeJwtResponse(response.credential);
-
-    // Usar jQuery para manipular el DOM
     $("#image").attr("src", responsePayload.picture);
     $("#name").text(responsePayload.name);
     $("#email").text(responsePayload.email);
-    $(".data").show(); // Mostrar los datos del usuario
-    $(".g_id_signin").hide(); // Ocultar el botón de inicio de sesión
+    $(".data").show();
+    $(".g_id_signin").hide();
 }
 
-// Decodificar el token JWT para obtener la información del usuario
 function decodeJwtResponse(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -20,4 +16,15 @@ function decodeJwtResponse(token) {
 
     return JSON.parse(jsonPayload);
 }
+
+$(document).ready(function() {
+    $("#signOut").click(function() {
+        $("#image").attr("src", "");
+        $("#name").text("");
+        $("#email").text("");
+        $(".data").hide();
+        $(".g_id_signin").show();
+        window.location.href = "index.html";
+    });
+});
 
