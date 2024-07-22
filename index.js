@@ -3,8 +3,6 @@ function onSignIn(googleUser) {
     document.getElementById('image').src = profile.getImageUrl();
     document.getElementById('name').textContent = profile.getName();
     document.getElementById('email').textContent = profile.getEmail();
-    document.querySelector('.data').style.display = 'block';
-    document.querySelector('.g-signin2').style.display = 'none';
 }
 
 function signOut() {
@@ -15,4 +13,3 @@ function signOut() {
         document.querySelector('.g-signin2').style.display = 'block';
     });
 }
-
