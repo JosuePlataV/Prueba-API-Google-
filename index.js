@@ -3,6 +3,8 @@ function onSignIn(googleUser) {
     document.getElementById('image').src = profile.getImageUrl();
     document.getElementById('name').textContent = profile.getName();
     document.getElementById('email').textContent = profile.getEmail();
+    document.querySelector('.data').style.display = 'block';
+    document.querySelector('.g-signin2').style.display = 'none';
 }
 
 function signOut() {
@@ -13,3 +15,11 @@ function signOut() {
         document.querySelector('.g-signin2').style.display = 'block';
     });
 }
+
+window.onload = function() {
+    gapi.load('auth2', function() {
+        gapi.auth2.init().then(function() {
+            console.log('Google API initialized');
+        });
+    });
+};
