@@ -1,5 +1,5 @@
 .data{
-    display: none; 
+    display: none;
 }
 
 .g_id_signin{
@@ -16,4 +16,9 @@
     left: 50%;
     margin-top: -50px;
     margin-left: -50px;
+}
+
+#image{
+   width: 100px;
+   height: 100px;
 }
