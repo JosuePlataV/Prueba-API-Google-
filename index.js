@@ -1,11 +1,12 @@
 function handleCredentialResponse(response) {
     const responsePayload = decodeJwtResponse(response.credential);
-    $("#image").attr("src", responsePayload.picture);
-    $("#name").text(responsePayload.name);
-    $("#email").text(responsePayload.email);
-    $(".data").show();
-    $(".g_id_signin").hide();
 
+    // Guardar los datos en localStorage
+    localStorage.setItem('image', responsePayload.picture);
+    localStorage.setItem('name', responsePayload.name);
+    localStorage.setItem('email', responsePayload.email);
+
+    // Redirigir a correo.html
     window.location.href = "correo.html";
 }
 
@@ -19,16 +20,5 @@ function decodeJwtResponse(token) {
     return JSON.parse(jsonPayload);
 }
 
-$(document).ready(function() {
-    $("#signOut").click(function() {
-        $("#image").attr("src", "");
-        $("#name").text("");
-        $("#email").text("");
-        $(".data").hide();
-        $(".g_id_signin").show();
-
-        window.location.href = "index.html";
-    });
-});
 
 
