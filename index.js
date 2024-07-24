@@ -5,6 +5,8 @@ function handleCredentialResponse(response) {
     $("#email").text(responsePayload.email);
     $(".data").show();
     $(".g_id_signin").hide();
+
+    window.location.href = "correo.html";
 }
 
 function decodeJwtResponse(token) {
