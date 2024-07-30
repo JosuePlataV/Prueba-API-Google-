@@ -19,6 +19,3 @@ function decodeJwtResponse(token) {
 
     return JSON.parse(jsonPayload);
 }
-
-
-

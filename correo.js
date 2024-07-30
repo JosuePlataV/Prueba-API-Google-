@@ -1,17 +1,17 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
     const image = localStorage.getItem('image');
     const name = localStorage.getItem('name');
     const email = localStorage.getItem('email');
 
     if (image && name && email) {
-        $("#image").attr("src", image);
-        $("#name").text(name);
-        $("#email").text(email);
+        document.getElementById('image').src = image;
+        document.getElementById('name').textContent = name;
+        document.getElementById('email').textContent = email;
     } else {
         window.location.href = "index.html";
     }
 
-    $("#signOut").click(function() {
+    document.getElementById('signOut').addEventListener('click', function() {
         localStorage.removeItem('image');
         localStorage.removeItem('name');
         localStorage.removeItem('email');
