@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "index.html";
     }
 
-    document.getElementById('sendButton').addEventListener('click', function() {
+    document.getElementById('goToReset').addEventListener('click', function() {
         const data = {
             name: name,
             email: email,
