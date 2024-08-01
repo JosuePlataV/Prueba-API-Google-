@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             message: 'Este es un mensaje de prueba',
             extraField: 'valorExtra'
         }
-        window.location.href = "return.html";
+        window.location.href = "reset.html";
     });
 });
 
