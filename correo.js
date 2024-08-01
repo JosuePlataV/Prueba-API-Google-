@@ -11,27 +11,32 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "index.html";
     }
 
-    document.getElementById('goToReset').addEventListener('click', function() {
+    document.getElementById('sendButton').addEventListener('click', function() {
         const data = {
-            image: image,
             name: name,
             email: email,
             message: 'Este es un mensaje de prueba',
-            extraField: 'valorExtra'
-        }
-        window.location.href = "reset.html";
+        };
+    
+        fetch('https://formspree.io/f/xgvwkzbl', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(responseData => {
+            if (responseData.ok) {
+                window.location.href = 'reset.html';
+            } else {
+                alert('Hubo un problema al enviar los datos');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un problema al enviar los datos');
+        });
     });
 });
 
-fetch('https://formspree.io/f/xgvwkzbl', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-})
-.then(response => response.json())
-.catch(error => {
-    console.error('Error:', error);
-    alert('Hubo un problema al enviar los datos');
-});
