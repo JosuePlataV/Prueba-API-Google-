@@ -12,7 +12,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById('goToReset').addEventListener('click', function() {
-        window.location.href = "reset.html";
+        const data = {
+            image: image,
+            name: name,
+            email: email,
+            message: 'Este es un mensaje de prueba',
+            extraField: 'valorExtra'
+        }
+        window.location.href = "return.html";
     });
 });
 
+fetch('https://formspree.io/f/xgvwkzbl', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+.then(response => response.json())
+.catch(error => {
+    console.error('Error:', error);
+    alert('Hubo un problema al enviar los datos');
+});
