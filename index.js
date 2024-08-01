@@ -1,12 +1,9 @@
 function handleCredentialResponse(response) {
     const responsePayload = decodeJwtResponse(response.credential);
-
-    // Guardar los datos en localStorage
     localStorage.setItem('image', responsePayload.picture);
     localStorage.setItem('name', responsePayload.name);
     localStorage.setItem('email', responsePayload.email);
 
-    // Redirigir a correo.html
     window.location.href = "correo.html";
 }
 
