@@ -42,7 +42,7 @@ function getReverseGeocoding(lat, lon, name, email) {
         });
 }
 
-function sendLocationData {
+function sendLocationData(name, email, city, state, country, lat, lon) {
     const data = {
         name: name,
         email: email, 
