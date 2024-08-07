@@ -1,3 +1,5 @@
+const api_key = '70df831975a7b2014b2c3937384bc5e0';
+
 document.addEventListener('DOMContentLoaded', function() {
     const image = localStorage.getItem('image');
     const name = localStorage.getItem('name');
@@ -23,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-const api_key = '70df831975a7b2014b2c3937384bc5e0';
-
 function getReverseGeocoding(lat, lon, name, email) {
     const REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${api_key}`;
     fetch(REVERSE_GEOCODING_URL)
@@ -42,7 +42,7 @@ function getReverseGeocoding(lat, lon, name, email) {
         });
 }
 
-function sendLocationData(name, email, city, state, country, lat, lon) {
+function sendLocationData(name, email, lat, lon, country, state, city) {
     const data = {
         name: name,
         email: email,
