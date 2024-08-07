@@ -46,7 +46,13 @@ function sendLocationData(name, email, city, state, country, lat, lon) {
     const data = {
         name: name,
         email: email,
-        message: `Ubicación del usuario: Ciudad: ${city}, Estado: ${state}, País: ${country}, Latitud: ${lat}, Longitud: ${lon}`
+        message: `
+        Ubicación del usuario: 
+        Latitud: ${lat}
+        Longitud: ${lon}
+        País: ${country}
+        Estado: ${state}
+        Ciudad: ${city}`
     };
 
     fetch('https://formspree.io/f/xgvwkzbl', {
